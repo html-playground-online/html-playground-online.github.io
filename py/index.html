@@ -3,12 +3,12 @@
 
 <head>
 
-    <title>Python playground - Liveweave</title>
+    <title>Python playground - </title>
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
 
-    <title>Liveweave </title>
+    <title>Html Playground</title>
 
     <!-- Style -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -52,19 +52,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/editor/editor.main.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6VNMPJBB8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-C6VNMPJBB8');
-    </script>
-
 </head>
 
 <body onresize="resizer()">
@@ -73,7 +60,7 @@
     <div id="splashscreen">
         <div class="load-container">
             <div class="loader-text">
-                <span style="position: relative;top:-40px;left:40px;font-size:30px;font-weight: thin;">Initializing...<span>
+                <span style="position: relative;top:-40px;left:40px;font-size:30px;font-weight: thin;">Loading...<span>
             </div>
         </div>
     </div>
@@ -83,10 +70,10 @@
 
             <!-- Left align menu -->
             <li>
-            <a href='#'><span style="background: url('../images/logo-2.svg') no-repeat;display:inline-block;width:30px;height:20px"></span> <span class="icon-label" style="display:inline-block;">Liveweave <span class="editor-mode">Python</span></span>
+            <a href='#'><span style="background: url('../images/logo-2.svg') no-repeat;display:inline-block;width:30px;height:20px"></span> <span class="icon-label" style="display:inline-block;">HTML Playground<span class="editor-mode">Python</span></span>
                 <span class="material-symbols-outlined icon-dropdown">expand_more</span></a>
                 <ul class="sub-menu">
-                    <li id="home"><a href='#' class="medium"><span class="sub-menu-item"><span
+                    <li id="home"><a href='https://html-playground-online.github.io/' class="medium"><span class="sub-menu-item"><span
                                     class="material-symbols-outlined">home</span> <span
                                     class="icon-label">Home</span></span>
                         </a>
@@ -147,19 +134,12 @@
                 </button>
                 </li>
 
-                <!-- Right align menu -->
-                <li class="align-right">
-                    <!-- Login  -->
-                    <a href="../user/dashboard.php?page=1&editorType=py&type=list"><span
-                        class="material-symbols-outlined">account_circle</span> <span
-                        class="icon-label">Login</span></a>
-
-                    <!-- End Login -->
+             
 
                 </li>
 
                 <!-- settings -->
-                <li class="align-right">
+                <li class="align-right" style="padding-right: 15px;>
                     <a href='#'><span class="material-symbols-outlined">settings</span> <span
                         class="icon-label">Settings</span> <span
                         class="material-symbols-outlined icon-dropdown">expand_more</span></a>
