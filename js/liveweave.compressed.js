@@ -263,7 +263,7 @@ function downloadZip() {
 }
 
 function loadTemplate() {
-    htmlContent = '<!DOCTYPE html>\n<html>\n<head>\n<title>HTML, CSS and JavaScript demo</title>\n</head>\n<body>\n<!-- Start your code here -->\n\n<p class="lw">Hello Weaver!</p>\n\n<!-- End your code here -->\n</body>\n</html>', cssContent = ".lw { font-size: 60px; }", jsContent = "// Write JavaScript here"
+    htmlContent = '<!DOCTYPE html>\n<html>\n<head>\n<title>HTML, CSS and JavaScript demo</title>\n</head>\n<body>\n<!-- Start your code here -->\n\n<p class="lw">Hello Player!</p>\n\n<!-- End your code here -->\n</body>\n</html>', cssContent = ".lw { font-size: 60px; }", jsContent = "// Write JavaScript here"
 }
 initLoad(), $("#generator-ipsum").click(function() {
     var e = htmlEditor.getPosition();
