@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #bbb;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+h1 {
+    color: #999;
+}
+
+.txtarea {
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    background: #222;
+    color: #ddd;
+    border-color: #444;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.myDiv {
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.grey {
+    color: #676767;
+}
+
+.dark-skin {
+    /* Dark skin styles */
+    background-color: #333333;
+    color: #ffffff;
+}
+
+#skinButton {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #eee;
+    border-radius: 4px;
+}
