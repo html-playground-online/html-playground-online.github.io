@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us HTML Playground online </title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1e26; /* Dark background */
+    color: #fff; /* Text color */
+}
+
+header {
+    background-color: #e74c3c; /* Red header */
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: bold;
+    flex: 1; /* Allows it to take up available space */
+    text-align: center; /* Centers the text horizontally */
+}
+
+.menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1000;
+}
+
+.menu a {
+    color: #e74c3c;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu a:last-child {
+    border-bottom: none;
+}
+
+.menu a:hover {
+    color: #c0392b;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menu-button span {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .menu-button {
+        display: flex; /* Show menu button on mobile */
+    }
+
+    .menu.show {
+        display: flex; /* Show menu links when toggled */
+    }
+
+    .site-name {
+        text-align: center; /* Center the site name on mobile */
+        flex: 1; /* Allows the site name to be centered */
+    }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 769px) {
+    .menu-button {
+        display: none; /* Hide menu button on desktop */
+    }
+
+    .menu {
+        display: flex; /* Show menu links inline on desktop */
+        position: static;
+        flex-direction: row;
+        gap: 20px;
+        background: none;
+        color: #fff;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .menu a {
+        color: #fff;
+        border: none;
+    }
+
+    .menu a:hover {
+        color: #ccc;
+    }
+}
+
+/* Contact Form Styles */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff; /* White inner box */
+    color: #000; /* Black text inside the box */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container input, .container textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.container input[type="submit"] {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.container input[type="submit"]:hover {
+    background-color: #c0392b;
+}
+
+footer {
+    margin-top: 50px;
+    background-color: #e74c3c; /* Red footer */
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <button class="menu-button" onclick="toggleMenu()">
+        &#9776; 
+    </button>
+    <a href="https://html-playground-online.github.io" style="color:White;">
+        <div class="site-name">HTML PLAYGROUND</div>
+    </a>
+    <div class="menu">
+        <a href="https://html-playground-online.github.io">HOME</a>
+        <a href="#">BLOG</a>
+        <a href="#">Cheat Sheets</a>
+        <a href="https://html-playground-online.github.io/contact/">CONTACT</a>
+    </div>
+</header>
+
+<div class="container">
+    <h1>Contact Us</h1>
+    <p>Email us: <a href="mailto:hamzaseo.seo@gmail.com">hamzaseo.seo@gmail.com</a></p>
+    <p><strong>OR</strong></p>
+    <form action="https://formspree.io/f/xqaabydq" method="post">
+        <input type="text" name="name" placeholder="Name *" required>
+        <input type="email" name="email" placeholder="Email Address *" required>
+        <input type="text" name="subject" placeholder="Subject *" required>
+        <textarea name="message" placeholder="Message *" rows="5" required></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024  Html-Playground-Online. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('show');
+    }
+</script>
+
+</body>
+</html>
