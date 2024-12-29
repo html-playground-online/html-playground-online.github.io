@@ -9,19 +9,162 @@
     <meta name="description" content="About Liveweave.com" />
     <meta name="keywords" content="about page, about, about liveweave, liveweave, liveweave.com" />
     <meta name="author" content="Hamza Javed" />
-    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/about-demo.css" />
     <link rel="stylesheet" type="text/css" href="css/about-component.css" />
     <script src="js/modernizr.custom.js"></script>
+    <style>
+        header {
+            background: linear-gradient(to bottom, #333333, #444444);
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            flex: 1;
+            /* Allows it to take up available space */
+            text-align: center;
+            /* Centers the text horizontally */
+        }
+
+        .menu {
+            display: none;
+            /* Hidden by default */
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            right: 15px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            z-index: 1000;
+        }
+
+        .menu a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            color: #c0392b;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-button span {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: flex;
+                /* Show menu button on mobile */
+            }
+
+            .menu.show {
+                display: flex;
+                /* Show menu links when toggled */
+            }
+
+            .site-name {
+                text-align: center;
+                /* Center the site name on mobile */
+                flex: 1;
+                /* Allows the site name to be centered */
+            }
+        }
+
+        /* Desktop-specific styles */
+        @media (min-width: 769px) {
+            .menu-button {
+                display: none;
+                /* Hide menu button on desktop */
+            }
+
+            .menu {
+                display: flex;
+                /* Show menu links inline on desktop */
+                position: static;
+                flex-direction: row;
+                gap: 20px;
+                background: none;
+                color: #fff;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .menu a {
+                color: #fff;
+                border: none;
+            }
+
+            .menu a:hover {
+                color: #ccc;
+            }
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <a href="https://html-playground-online.github.io" style="color:White;">
+            <div class="site-name">HTML PLAYGROUND</div>
+        </a>
+        <div class="menu">
+            <a href="https://html-playground-online.github.io">HOME</a>
+            <a href="#">BLOG</a>
+            <a href="#">CHEAT SHEETS</a>
+            <a href="https://html-playground-online.github.io/contact-us/index.html">CONTACT</a>
+            <a href="https://html-playground-online.github.io/privacy-policy.html">PRIVACY</a>
+        </div>
+    </header>
     <div class="container">
         <div id="cbp-so-scroller" class="cbp-so-scroller">
             <section class="cbp-so-section">
                 <article class="cbp-so-side cbp-so-side-left">
                     <h2>About</h2>
-                    <p><a href="https://html-playground-online.github.io/" target="_blank">HTML Playground online </a> is a HTML, CSS & JavaScript editor with real-time (live) preview. It is the ultimate playground for web designers and developers, and a great tool to test, practice and share your creations, since 2005! </p>
+                    <p><a href="https://html-playground-online.github.io/" target="_blank">HTML Playground online </a>
+                        is a HTML, CSS & JavaScript editor with real-time (live) preview. It is the ultimate playground
+                        for web designers and developers, and a great tool to test, practice and share your creations,
+                        since 2005! </p>
                 </article>
                 <figure class="cbp-so-side cbp-so-side-right">
                     <img src="images/1.png" alt="img01">
@@ -33,15 +176,21 @@
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
                     <h2>What's so special about it?</h2>
-                    <p>Well, for starters…it is really easy to use. It has resizable panels, so that you can write your code (or Player, as we call it) the way you want. HTML Playground online also has built-in context-sensitive code-hinting for HTML5, CSS3, JavaScript
-                        and jQuery, that makes life a lot easier. You can save your Code in the download single file or it as a .zip file, play with color palettes, edit in full-screen and a whole lot more! Oh..there's even a ruler to help you with your next
+                    <p>Well, for starters…it is really easy to use. It has resizable panels, so that you can write your
+                        code (or Player, as we call it) the way you want. HTML Playground online also has built-in
+                        context-sensitive code-hinting for HTML5, CSS3, JavaScript
+                        and jQuery, that makes life a lot easier. You can save your Code in the download single file or
+                        it as a .zip file, play with color palettes, edit in full-screen and a whole lot more!
+                        Oh..there's even a ruler to help you with your next
                         responsive design!</p>
                 </article>
             </section>
             <section class="cbp-so-section">
                 <article class="cbp-so-side cbp-so-side-left">
                     <h2>External CSS & JavaScript libraries</h2>
-                    <p>If you want to quickly work with jQuery, or say jQueryUI, you don't have to search for the external libraries online. Just select them from the menu, and you are all set. There are several libraries, just choose the ones you want.</p>
+                    <p>If you want to quickly work with jQuery, or say jQueryUI, you don't have to search for the
+                        external libraries online. Just select them from the menu, and you are all set. There are
+                        several libraries, just choose the ones you want.</p>
                 </article>
                 <figure class="cbp-so-side cbp-so-side-right">
                     <img src="images/3.png" alt="img01">
@@ -53,13 +202,17 @@
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
                     <h2>Code-hinting for HTML, CSS and JavaScript</h2>
-                    <p>We have an awesome code-hinting/auto-completion technology built-in, for HTML, CSS, JavaScript and jQuery coding. The JavaScript auto-completion in HTML Playground Online is one of the world's most advanced of its kind in any web application.</p>
+                    <p>We have an awesome code-hinting/auto-completion technology built-in, for HTML, CSS, JavaScript
+                        and jQuery coding. The JavaScript auto-completion in HTML Playground Online is one of the
+                        world's most advanced of its kind in any web application.</p>
                 </article>
             </section>
             <section class="cbp-so-section">
                 <article class="cbp-so-side cbp-so-side-left">
                     <h2>Multiple layouts & Night vision</h2>
-                    <p>HTML Playground Online has mutliple layouts for all the panels and two themes (dark/light) to choose from. You can change the layouts on the fly to fit your needs and toggle between single-click full-screen editing/preview modes. You can also instantly
+                    <p>HTML Playground Online has mutliple layouts for all the panels and two themes (dark/light) to
+                        choose from. You can change the layouts on the fly to fit your needs and toggle between
+                        single-click full-screen editing/preview modes. You can also instantly
                         turn-off Night Vision and toggle between light and dark themes.</p>
                 </article>
                 <figure class="cbp-so-side cbp-so-side-right">
@@ -68,7 +221,7 @@
             </section>
             <section class="cbp-so-section" style="background:#444444;">
                 <figure class="cbp-so-side cbp-so-side-left">
-                    <img src="images/6.png" alt="img01">
+                    <img src="images/7.png" alt="img01">
                 </figure>
                 <article class="cbp-so-side cbp-so-side-right">
                     <p>Created by<br>
@@ -76,22 +229,25 @@
                             <span style="display: inline-block;padding-top:20px;">
                                 <img src="images/me.png" alt="Hamza Javed Picture">
                             </span>
-                        <span style="color: orange;display: block;padding-top:10px;padding-left:20px;">
-                            Hamza Javed
-                        </span>
-                    </a>
+                            <span style="color: orange;display: block;padding-top:10px;padding-left:20px;">
+                                Hamza Javed
+                            </span>
+                        </a>
                     </p>
                     <p>How to contact us?<br>
                         <span>
                             <a href="mailto:hamzaseo.seo@gmail.com" target="_top">hamzaseo.seo@gmail.com</a>
                         </span>
                     </p>
-                    <br/>
+                    <br />
                 </article>
             </section>
 
         </div>
     </div>
+    <footer>
+        <p>&copy; 2024 Html-Playground-Online. All rights reserved.</p>
+    </footer>
     <script src="js/classie.js"></script>
     <script src="js/cbpScroller.js"></script>
     <script>
