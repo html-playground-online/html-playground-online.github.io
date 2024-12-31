@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conatct us HTML Playground Online</title>
+    <link rel="shortcut icon" href="https://liveweave.com/images/favicon.svg?1735029083" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #333333, #444444);
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            flex: 1;
+            /* Allows it to take up available space */
+            text-align: center;
+            /* Centers the text horizontally */
+        }
+
+        .menu {
+            display: none;
+            /* Hidden by default */
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            right: 15px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            z-index: 1000;
+        }
+
+        .menu a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            color: #c0392b;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-button span {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: flex;
+                /* Show menu button on mobile */
+            }
+
+            .menu.show {
+                display: flex;
+                /* Show menu links when toggled */
+            }
+
+            .site-name {
+                text-align: center;
+                /* Center the site name on mobile */
+                flex: 1;
+                /* Allows the site name to be centered */
+            }
+        }
+
+        /* Desktop-specific styles */
+        @media (min-width: 769px) {
+            .menu-button {
+                display: none;
+                /* Hide menu button on desktop */
+            }
+
+            .menu {
+                display: flex;
+                /* Show menu links inline on desktop */
+                position: static;
+                flex-direction: row;
+                gap: 20px;
+                background: none;
+                color: #fff;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .menu a {
+                color: #fff;
+                border: none;
+            }
+
+            .menu a:hover {
+                color: #ccc;
+            }
+        }
+
+        /* Contact Form Styles */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            /* White inner box */
+            color: #000;
+            /* Black text inside the box */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .container input,
+        .container textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .container input[type="submit"] {
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #444444;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #0078D7;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 4px solid #0078D7;
+            overflow-x: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+        
+        .pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centers the pagination */
+    gap: 10px;
+    padding: 0;
+}
+
+
+        .pagination li {
+            display: inline;
+        }
+
+        .pagination a,
+        .pagination span {
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid #0078D7;
+            border-radius: 4px;
+            color: #0078D7;
+            transition: 0.3s;
+        }
+
+        .pagination a:hover {
+            background-color: #0078D7;
+            color: white;
+        }
+
+        .pagination .current {
+            background-color: #0078D7;
+            color: white;
+            pointer-events: none;
+        }
+
+        .pagination a.disabled {
+            pointer-events: none;
+            color: gray;
+            border-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <a href="https://html-playground-online.github.io" target="_blank" style="color:White;">
+            <div class="site-name">HTML PLAYGROUND</div>
+        </a>
+        <div class="menu">
+            <a href="https://html-playground-online.github.io" target="_blank" >HOME</a>
+            <a href="#">BLOG</a>
+            <a href="#">Cheat Sheets</a>
+            <a href="https://html-playground-online.github.io/contact-us/index.html" target="_blank" >CONTACT</a>
+            <a href="https://html-playground-online.github.io/privacy-policy.html" target="_blank" >PRIVACY</a>
+
+        </div>
+    </header>
+    <section>
+        <h2>16. Color Picker</h2>
+        <p><strong>Function:</strong> The Color Picker allows users to choose any color and view its corresponding HEX, RGB, and HSL values.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Use the color spectrum or slider to select a color.</li>
+            <li>Observe the real-time changes in the color preview box.</li>
+            <li>Copy the displayed HEX, RGB, or HSL values for your project.</li>
+        </ol>
+        <img src="./images/16.png" alt="Color Picker Example">
+    </section>
+    
+    <section>
+        <h2>17. Gradient Generator</h2>
+        <p><strong>Function:</strong> The Gradient Generator helps create linear or radial gradients with multiple colors.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Select "Linear" or "Radial" gradient options.</li>
+            <li>Add or adjust gradient stops using the controls provided.</li>
+            <li>Copy the generated CSS code for your project.</li>
+        </ol>
+        <img src="./images/17.png" alt="Gradient Generator Example">
+    </section>
+    
+    <section>
+        <h2>18. Predefined Color Palettes</h2>
+        <p><strong>Function:</strong> Provides a variety of predefined color palettes for quick selection.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Scroll through the palette options.</li>
+            <li>Click on a color to view its details.</li>
+            <li>Copy the color values for use in your design.</li>
+        </ol>
+        <img src="./images/18.png" alt="Color Palette Example">
+    </section>
+    
+    <section>
+        <h2>19. Contrast Checker</h2>
+        <p><strong>Function:</strong> Checks the contrast ratio between two colors for accessibility compliance.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Select the foreground and background colors using the pickers.</li>
+            <li>View the contrast ratio and compliance results.</li>
+            <li>Adjust colors until the ratio meets WCAG standards.</li>
+        </ol>
+        <img src="./images/19.png" alt="Contrast Checker Example">
+    </section>
+    
+    <section>
+        <h2>20. Color Code Conversion</h2>
+        <p><strong>Function:</strong> Converts between HEX, RGB, and HSL color formats.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Enter the color code in the input box.</li>
+            <li>See the equivalent values in other formats displayed automatically.</li>
+            <li>Copy the desired format for your project.</li>
+        </ol>
+        <img src="./images/20.png" alt="Color Code Conversion Example">
+    </section>
+    
+    <section>
+        <h2>21. Save and Share Colors</h2>
+        <p><strong>Function:</strong> Allows users to save and share selected colors for future use.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Save the selected colors by clicking the "Save" button.</li>
+            <li>Copy the link generated for sharing.</li>
+            <li>Access the saved colors later using the shared link.</li>
+        </ol>
+        <img src="./images/21.png" alt="Save and Share Example">
+    </section>
+    
+
+
+     <!-- Pagination -->
+     <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li><a id="prevBtn" class="prev page-numbers" href="#">Previous</a></li>
+            <li><span aria-current="page" class="page-numbers current">1</span></li>
+            <li><a class="page-numbers" href="page2.html">2</a></li>
+            <li><a class="page-numbers" href="page3.html">3</a></li>
+            <li><a class="page-numbers" href="page4.html">4</a></li>
+            <li><a class="page-numbers" href="page5.html">5</a></li>
+            <li><a class="page-numbers" href="page6.html">6</a></li>
+            <li><a id="nextBtn" class="next page-numbers" href="page2.html">Next</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        <p>&copy; 2024 Html-Playground-Online. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+ <script>
+    const totalPages = 5; // Total number of pages
+    const maxVisiblePages = 3; // Maximum number of visible pages
+    const currentPageMatch = window.location.pathname.match(/page(\d+)/);
+    let currentPage = currentPageMatch ? parseInt(currentPageMatch[1]) : 1; // Default to page 1
+
+    function renderPagination() {
+        const paginationContainer = document.querySelector('.pagination');
+        paginationContainer.innerHTML = ''; // Clear current pagination
+
+        // Add "Previous" button
+        const prevBtn = document.createElement('li');
+        prevBtn.innerHTML = `<a class="prev page-numbers ${currentPage === 1 ? 'disabled' : ''}" href="#">Previous</a>`;
+        if (currentPage > 1) {
+            prevBtn.querySelector('a').href = currentPage === 2 ? 'index.html' : `page${currentPage - 1}.html`;
+        }
+        paginationContainer.appendChild(prevBtn);
+
+        // Calculate visible page range
+        const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+        const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+        // Adjust start page if we're near the end
+        const adjustedStartPage = Math.max(1, endPage - maxVisiblePages + 1);
+
+        // Render page numbers
+        for (let i = adjustedStartPage; i <= endPage; i++) {
+            const pageItem = document.createElement('li');
+            pageItem.innerHTML = `<a class="page-numbers ${i === currentPage ? 'current' : ''}" href="${i === 1 ? 'index.html' : `page${i}.html`}">${i}</a>`;
+            paginationContainer.appendChild(pageItem);
+        }
+
+        // Add "..." if there are more pages
+        if (endPage < totalPages) {
+            const ellipsis = document.createElement('li');
+            ellipsis.innerHTML = `<span class="page-numbers">...</span>`;
+            paginationContainer.appendChild(ellipsis);
+        }
+
+        // Add "Next" button
+        const nextBtn = document.createElement('li');
+        nextBtn.innerHTML = `<a class="next page-numbers ${currentPage === totalPages ? 'disabled' : ''}" href="#">Next</a>`;
+        if (currentPage < totalPages) {
+            nextBtn.querySelector('a').href = `page${currentPage + 1}.html`;
+        }
+        paginationContainer.appendChild(nextBtn);
+    }
+
+    // Initialize pagination
+    renderPagination();
+</script>
+
+
+
+</body>
+
+</html>
