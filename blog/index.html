@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conatct us HTML Playground Online</title>
+    <link rel="shortcut icon" href="https://liveweave.com/images/favicon.svg?1735029083" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #333333, #444444);
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            flex: 1;
+            /* Allows it to take up available space */
+            text-align: center;
+            /* Centers the text horizontally */
+        }
+
+        .menu {
+            display: none;
+            /* Hidden by default */
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            right: 15px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            z-index: 1000;
+        }
+
+        .menu a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            color: #c0392b;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-button span {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: flex;
+                /* Show menu button on mobile */
+            }
+
+            .menu.show {
+                display: flex;
+                /* Show menu links when toggled */
+            }
+
+            .site-name {
+                text-align: center;
+                /* Center the site name on mobile */
+                flex: 1;
+                /* Allows the site name to be centered */
+            }
+        }
+
+        /* Desktop-specific styles */
+        @media (min-width: 769px) {
+            .menu-button {
+                display: none;
+                /* Hide menu button on desktop */
+            }
+
+            .menu {
+                display: flex;
+                /* Show menu links inline on desktop */
+                position: static;
+                flex-direction: row;
+                gap: 20px;
+                background: none;
+                color: #fff;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .menu a {
+                color: #fff;
+                border: none;
+            }
+
+            .menu a:hover {
+                color: #ccc;
+            }
+        }
+
+        /* Contact Form Styles */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            /* White inner box */
+            color: #000;
+            /* Black text inside the box */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .container input,
+        .container textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .container input[type="submit"] {
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #444444;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #0078D7;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 4px solid #0078D7;
+            overflow-x: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+        
+        .pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centers the pagination */
+    gap: 10px;
+    padding: 0;
+}
+
+
+        .pagination li {
+            display: inline;
+        }
+
+        .pagination a,
+        .pagination span {
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid #0078D7;
+            border-radius: 4px;
+            color: #0078D7;
+            transition: 0.3s;
+        }
+
+        .pagination a:hover {
+            background-color: #0078D7;
+            color: white;
+        }
+
+        .pagination .current {
+            background-color: #0078D7;
+            color: white;
+            pointer-events: none;
+        }
+
+        .pagination a.disabled {
+            pointer-events: none;
+            color: gray;
+            border-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <a href="https://html-playground-online.github.io" target="_blank" style="color:White;">
+            <div class="site-name">HTML PLAYGROUND</div>
+        </a>
+        <div class="menu">
+            <a href="https://html-playground-online.github.io" target="_blank" >HOME</a>
+            <a href="#">BLOG</a>
+            <a href="#">Cheat Sheets</a>
+            <a href="https://html-playground-online.github.io/contact-us/index.html" target="_blank" >CONTACT</a>
+            <a href="https://html-playground-online.github.io/privacy-policy.html" target="_blank" >PRIVACY</a>
+
+        </div>
+    </header>
+
+    <section>
+        <h2>1. HTML Editor</h2>
+        <p><strong>Function:</strong> The HTML Editor allows users to write and edit HTML code, forming the structure of
+            web pages.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Open the HTML Editor tab.</li>
+            <li>Write your HTML code in the editor window.</li>
+            <li>The live preview pane updates automatically, showing the rendered output.</li>
+        </ol>
+        <pre>
+&lt;h1&gt;Welcome to HTML Playground&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+    </pre>
+        <img src="./images/1.png" alt="HTML Editor Example Output">
+    </section>
+    <section>
+        <h2>2. CSS Editor</h2>
+        <p><strong>Function:</strong> The CSS Editor allows users to style their HTML elements, customizing their
+            appearance.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Navigate to the CSS Editor tab.</li>
+            <li>Write CSS rules to style HTML elements.</li>
+            <li>See the changes in the live preview pane.</li>
+        </ol>
+        <pre>
+h1 {
+color: blue;
+font-size: 2em;
+}
+p {
+color: gray;
+font-style: italic;
+}
+    </pre>
+        <img src="./images/2.png" alt="CSS Editor Example Output">
+    </section>
+    <section>
+        <h2>3. JavaScript Editor</h2>
+        <p><strong>Function:</strong> The JavaScript Editor enables users to add interactivity and dynamic behavior to
+            web pages.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Switch to the JavaScript Editor tab.</li>
+            <li>Write JavaScript code to manipulate HTML elements or add functionality.</li>
+            <li>Interact with the live preview to test your script.</li>
+        </ol>
+        <pre>
+document.querySelector('h1').onclick = function() {
+alert('Hello from JavaScript!');
+};
+    </pre>
+        <img src="./images/3.png" alt="JavaScript Editor Example Output">
+    </section>
+    <section>
+        <h2>4. Python Editor</h2>
+        <p><strong>Function:</strong> The Python Editor supports Python scripting, useful for backend tasks, data
+            analysis, or algorithm testing.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Open the Python Editor tab.</li>
+            <li>Write Python code in the editor.</li>
+            <li>Run the code to see the output in the console.</li>
+        </ol>
+        <pre>
+print("Hello, Python Playground!")
+    </pre>
+        <img src="./images/4.png" alt="Python Editor Example Output">
+    </section>
+    <section>
+        <h2>5. Live Preview</h2>
+        <p><strong>Function:</strong> Displays real-time updates of your code in the preview pane.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Write or modify code in any editor (HTML, CSS, JavaScript, or Python).</li>
+            <li>The changes appear instantly in the live preview pane.</li>
+            <li>Use the refresh button if the preview doesn’t update automatically.</li>
+        </ol>
+    </section>
+    <section>
+        <h2>6. Code Formatting Tools</h2>
+        <p><strong>Function:</strong> Formats and beautifies your code for better readability.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Write your code in the editor.</li>
+            <li>Click the "Format" button corresponding to the editor (HTML, CSS, or JavaScript).</li>
+            <li>The code is automatically formatted.</li>
+        </ol>
+    </section>
+    <section>
+        <h2>7. Library Integration</h2>
+        <p><strong>Function:</strong> Integrates popular CSS frameworks (Bootstrap, Tailwind) and JavaScript libraries
+            (jQuery, React).</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Select a library from the dropdown menu in the editor.</li>
+            <li>Use the library's classes or functions in your code.</li>
+            <li>The live preview reflects the library’s effects.</li>
+        </ol>
+    </section>
+    <section>
+        <h2>8. Lorem Ipsum Generator</h2>
+        <p><strong>Function:</strong> Quickly inserts placeholder text into your projects.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Click on the Lorem Ipsum Generator tool.</li>
+            <li>Specify the number of paragraphs or words.</li>
+            <li>Paste the generated text into your editor.</li>
+        </ol>
+    </section>
+    <section>
+        <h2>9. Settings Customization</h2>
+        <p><strong>Function:</strong> Customizes the editor's appearance and functionality.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Open the settings menu.</li>
+            <li>Toggle options like Night Mode, Line Numbers, or Word Wrap.</li>
+            <li>Save your preferences for a personalized experience.</li>
+        </ol>
+        <img src="./images/9.png" alt="Python Editor Example Output">
+
+    </section>
+    <section>
+        <h2>10. Download Options</h2>
+        <p><strong>Function:</strong> Downloads your code for offline use or sharing.</p>
+        <p><strong>How to Use:</strong></p>
+        <ol>
+            <li>Write your code in the editor.</li>
+            <li>Click the "Download" button.</li>
+            <li>Choose between downloading as an HTML file or a ZIP archive.</li>
+        </ol>
+    </section>
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li><a id="prevBtn" class="prev page-numbers" href="#">Previous</a></li>
+            <li><span aria-current="page" class="page-numbers current">1</span></li>
+            <li><a class="page-numbers" href="page2.html">2</a></li>
+            <li><a class="page-numbers" href="page3.html">3</a></li>
+            <li><a class="page-numbers" href="page4.html">4</a></li>
+            <li><a class="page-numbers" href="page5.html">5</a></li>
+            <li><a class="page-numbers" href="page6.html">6</a></li>
+            <li><a id="nextBtn" class="next page-numbers" href="page2.html">Next</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        <p>&copy; 2024 Html-Playground-Online. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+ <script>
+    const totalPages = 5; // Total number of pages
+    const maxVisiblePages = 3; // Maximum number of visible pages
+    const currentPageMatch = window.location.pathname.match(/page(\d+)/);
+    let currentPage = currentPageMatch ? parseInt(currentPageMatch[1]) : 1; // Default to page 1
+
+    function renderPagination() {
+        const paginationContainer = document.querySelector('.pagination');
+        paginationContainer.innerHTML = ''; // Clear current pagination
+
+        // Add "Previous" button
+        const prevBtn = document.createElement('li');
+        prevBtn.innerHTML = `<a class="prev page-numbers ${currentPage === 1 ? 'disabled' : ''}" href="#">Previous</a>`;
+        if (currentPage > 1) {
+            prevBtn.querySelector('a').href = currentPage === 2 ? 'index.html' : `page${currentPage - 1}.html`;
+        }
+        paginationContainer.appendChild(prevBtn);
+
+        // Calculate visible page range
+        const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+        const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+        // Adjust start page if we're near the end
+        const adjustedStartPage = Math.max(1, endPage - maxVisiblePages + 1);
+
+        // Render page numbers
+        for (let i = adjustedStartPage; i <= endPage; i++) {
+            const pageItem = document.createElement('li');
+            pageItem.innerHTML = `<a class="page-numbers ${i === currentPage ? 'current' : ''}" href="${i === 1 ? 'index.html' : `page${i}.html`}">${i}</a>`;
+            paginationContainer.appendChild(pageItem);
+        }
+
+        // Add "..." if there are more pages
+        if (endPage < totalPages) {
+            const ellipsis = document.createElement('li');
+            ellipsis.innerHTML = `<span class="page-numbers">...</span>`;
+            paginationContainer.appendChild(ellipsis);
+        }
+
+        // Add "Next" button
+        const nextBtn = document.createElement('li');
+        nextBtn.innerHTML = `<a class="next page-numbers ${currentPage === totalPages ? 'disabled' : ''}" href="#">Next</a>`;
+        if (currentPage < totalPages) {
+            nextBtn.querySelector('a').href = `page${currentPage + 1}.html`;
+        }
+        paginationContainer.appendChild(nextBtn);
+    }
+
+    // Initialize pagination
+    renderPagination();
+</script>
+
+
+
+
+</body>
+
+</html>
