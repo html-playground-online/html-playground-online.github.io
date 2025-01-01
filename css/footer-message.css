@@ -1,7 +1,7 @@
 /* Footer message box */
 
 .footer-message {
-    background: #222 url(./images/bg-polygon.jpg') !important;
+    background: #222 url("../images/bg-polygon.jpg") !important;
     background-size: 400% 400%;
     color: #ddd;
     position: fixed;
